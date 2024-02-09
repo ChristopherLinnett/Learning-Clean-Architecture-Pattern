@@ -23,8 +23,12 @@ void main() {
   group('createuser', () {
     test('should complete successfully when [statusCode] is 200 or 201',
         () async {
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
-        (_) async => http.Response('User Created Successfully', 201),
+      when(() => client.post(any(),
+          body: any(named: 'body'), headers: any(named: 'headers'))).thenAnswer(
+        (_) async => http.Response(
+          'User Created Successfully',
+          201,
+        ),
       );
 
       final methodCall = remoteDataSource.createUser;
@@ -39,13 +43,18 @@ void main() {
             'createdAt': 'createdAt',
             'name': 'name',
             'avatar': 'avatar',
-          }))).called(1);
+          }),
+          headers: any(named: 'headers'))).called(1);
       verifyNoMoreInteractions(client);
     });
     test('should throw [APIException] when the status code is not 200 or 201',
         () async {
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
-        (_) async => http.Response('Invalid Email Address', 400),
+      when(() => client.post(any(),
+          body: any(named: 'body'), headers: any(named: 'headers'))).thenAnswer(
+        (_) async => http.Response(
+          'Invalid Email Address',
+          400,
+        ),
       );
       final methodCall = remoteDataSource.createUser;
 
@@ -62,12 +71,14 @@ void main() {
             'createdAt': 'createdAt',
             'name': 'name',
             'avatar': 'avatar',
-          }))).called(1);
+          }),
+          headers: any(named: 'headers'))).called(1);
       verifyNoMoreInteractions(client);
     });
 
     test('should throw [APIException] when the status code is 505', () async {
-      when(() => client.post(any(), body: any(named: 'body'))).thenAnswer(
+      when(() => client.post(any(),
+          body: any(named: 'body'), headers: any(named: 'headers'))).thenAnswer(
         (_) async => http.Response('Dart Error', 505),
       );
       final methodCall = remoteDataSource.createUser;
@@ -85,7 +96,8 @@ void main() {
             'createdAt': 'createdAt',
             'name': 'name',
             'avatar': 'avatar',
-          }))).called(1);
+          }),
+          headers: any(named: 'headers'))).called(1);
       verifyNoMoreInteractions(client);
     });
   });

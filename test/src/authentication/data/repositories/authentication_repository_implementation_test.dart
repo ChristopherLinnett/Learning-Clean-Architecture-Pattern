@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:starting_project/core/errors/exceptions.dart';
 import 'package:starting_project/core/errors/failure.dart';
 import 'package:starting_project/src/authentication/data/data_sources/authentication_remote_data_source.dart';
-import 'package:starting_project/src/authentication/data/repositories/authentication_remote_data_source_implementation.dart';
+import 'package:starting_project/src/authentication/data/repositories/authentication_repository_implementation.dart';
 import 'package:starting_project/src/authentication/domain/entities/user.dart';
 
 class MockAuthenticationRemoteDataSource extends Mock
@@ -12,7 +12,7 @@ class MockAuthenticationRemoteDataSource extends Mock
 
 void main() {
   late AuthenticationRemoteDataSource remoteDataSource;
-  late AuthenticationRemoteDataSourceImplementation repositoryImplementation;
+  late AuthenticationRepositoryImplementation repositoryImplementation;
   const String createdAt = 'string.createdAt';
   const String name = 'string.name';
   const String avatar = 'string.avatar';
@@ -23,7 +23,7 @@ void main() {
   setUp(() {
     remoteDataSource = MockAuthenticationRemoteDataSource();
     repositoryImplementation =
-        AuthenticationRemoteDataSourceImplementation(remoteDataSource);
+        AuthenticationRepositoryImplementation(remoteDataSource);
   });
   group('createuser', () {
     test(

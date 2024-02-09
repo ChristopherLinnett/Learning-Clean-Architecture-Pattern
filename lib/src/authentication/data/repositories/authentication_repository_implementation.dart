@@ -6,11 +6,11 @@ import 'package:starting_project/src/authentication/data/data_sources/authentica
 import 'package:starting_project/src/authentication/domain/entities/user.dart';
 import 'package:starting_project/src/authentication/domain/repositories/authentication_repository.dart';
 
-class AuthenticationRemoteDataSourceImplementation
+class AuthenticationRepositoryImplementation
     implements AuthenticationRepository {
   final AuthenticationRemoteDataSource _remoteDataSource;
 
-  const AuthenticationRemoteDataSourceImplementation(this._remoteDataSource);
+  const AuthenticationRepositoryImplementation(this._remoteDataSource);
 
   @override
   ResultVoid createuser(
