@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart' show immutable;
 import 'package:starting_project/src/authentication/domain/entities/user.dart';
 import 'package:starting_project/src/authentication/domain/use_cases/create_user.dart';
 import 'package:starting_project/src/authentication/domain/use_cases/get_users.dart';
